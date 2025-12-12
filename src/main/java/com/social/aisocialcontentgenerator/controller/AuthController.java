@@ -5,6 +5,7 @@ import com.social.aisocialcontentgenerator.dto.AuthResponse;
 import com.social.aisocialcontentgenerator.dto.SignupRequest;
 import com.social.aisocialcontentgenerator.entity.User;
 import com.social.aisocialcontentgenerator.service.UserService;
+import com.social.aisocialcontentgenerator.util.JwtUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
