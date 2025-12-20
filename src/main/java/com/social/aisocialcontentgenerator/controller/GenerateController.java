@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin
 public class GenerateController {
 
     private final GenerationService generationService;

@@ -31,5 +31,5 @@ app:
   jwtExpirationMs: 86400000
 
 llm:
-  provider: openai
-  apiKey: YOUR_API_KEY_HERE
+  apiUrl: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
+  apiKey: ""
