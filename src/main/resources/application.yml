@@ -32,4 +32,4 @@ app:
 
 llm:
   apiUrl: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
-  apiKey: AIzaSyAS5ML2IrP8jq8icaYwAwJ8XNrRNc1r2kY
+  apiKey: ""
