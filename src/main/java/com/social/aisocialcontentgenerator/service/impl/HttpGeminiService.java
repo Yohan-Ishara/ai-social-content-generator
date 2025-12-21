@@ -1,7 +1,8 @@
-package com.social.aisocialcontentgenerator.service;
+package com.social.aisocialcontentgenerator.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.social.aisocialcontentgenerator.service.LLMService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +13,7 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import java.time.Duration;
 
 @Service
-public class HttpGeminiService implements LLMService{
+public class HttpGeminiService implements LLMService {
 
     private static final Logger log = LoggerFactory.getLogger(HttpGeminiService.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();

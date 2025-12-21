@@ -24,12 +24,12 @@ public class GenerateController {
     @PostMapping("/generate")
     public ResponseEntity<GenerateResponse> generate(@Valid @RequestBody GenerateRequest req,
                                                      Authentication authentication) {
-        Long userId = null;
-        if (authentication != null && authentication.getPrincipal() instanceof Long) {
-            userId = (Long) authentication.getPrincipal();
+        String email = null;
+        if (authentication != null && authentication.getPrincipal() instanceof String) {
+            email = (String) authentication.getPrincipal();
         }
         // If JWT filter didn't set a Long principal (maybe future), try email->userId lookup is needed.
-        GenerateResponse resp = generationService.generateForUser(userId, req);
+        GenerateResponse resp = generationService.generateForUser(email, req);
         return ResponseEntity.ok(resp);
     }
 }

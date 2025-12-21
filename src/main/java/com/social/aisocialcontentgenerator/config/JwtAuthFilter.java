@@ -41,9 +41,9 @@ public class JwtAuthFilter  extends OncePerRequestFilter {
                 Optional<User> userOpt = userRepository.findByEmail(subject);
                 if (userOpt.isPresent()) {
                     User user = userOpt.get();
-                    Long userId = user.getId();
+                    String userEmail = user.getEmail();
                     // create authentication with principal = userId
-                    var auth = new UsernamePasswordAuthenticationToken(userId, null, List.of(new SimpleGrantedAuthority("ROLE_USER")));
+                    var auth = new UsernamePasswordAuthenticationToken(userEmail, null, List.of(new SimpleGrantedAuthority("ROLE_USER")));
                     auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(auth);
                 }
