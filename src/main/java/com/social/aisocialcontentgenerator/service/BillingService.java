@@ -8,4 +8,12 @@ public interface BillingService {
     void upgradeUserToPro(String email);
 
     void handleEvent(String payload, String signature) throws SignatureVerificationException;
+    void activateSubscription(
+            String email,
+            String subscriptionId,
+            String customerId,
+            long periodEndEpoch
+    );
+
+    boolean isPro(String email);
 }
