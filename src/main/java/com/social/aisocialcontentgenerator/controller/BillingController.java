@@ -2,11 +2,15 @@ package com.social.aisocialcontentgenerator.controller;
 
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.exception.StripeException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import com.social.aisocialcontentgenerator.service.BillingService;
@@ -33,11 +37,13 @@ public class BillingController {
     }
 
 
-    @PostMapping("/webhook")
+    @PostMapping(
+            value = "/webhook",
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<String> webhook(
             @RequestBody String payload,
-            @RequestHeader("Stripe-Signature") String signature) throws SignatureVerificationException {
-
+            @RequestHeader("Stripe-Signature") String signature) {
         billingService.handleEvent(payload, signature);
         return ResponseEntity.ok("ok");
     }
