@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ai-social-content-generator
+
+  profiles:
+    active: prod
+
+app:
+  jwtSecret: ${JWT_SECRET}
+  jwtExpirationMs: 86400000
+
+llm:
+  apiUrl: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
+  apiKey: ${LLM_KEY}
+
+stripe:
+  secret:
+    key: ${STRIPE_SECRET_KEY}
+  webhook:
+    secret: ${STRIPE_WEBHOOK_KEY}
+  price:
+    pro: ${STRIPE_PRICE_PRO}
