@@ -19,8 +19,8 @@ spring:
 
 app:
   frontend:
-    success-url: https://ai-content.com/?success=true
-    cancel-url: https://ai-content.com/pricing
+    success-url: https://ai-social-content-gen-production.up.railway.app/?success=true
+    cancel-url: https://ai-social-content-gen-production.up.railway.app/pricing
 
 
 
