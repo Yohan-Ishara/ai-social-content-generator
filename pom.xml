@@ -138,12 +138,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.social</groupId>
-            <artifactId>ai-social-content-generator</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
 
         <!-- Apache Commons Lang (optional utilities) -->
 
