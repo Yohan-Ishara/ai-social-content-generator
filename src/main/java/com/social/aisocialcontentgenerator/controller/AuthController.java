@@ -8,6 +8,7 @@ import com.social.aisocialcontentgenerator.service.UserService;
 import com.social.aisocialcontentgenerator.util.JwtUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,8 +37,13 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody AuthRequest req) {
-        User user = userService.validateUser(req.getEmail(), req.getPassword());
-        String token = jwtUtils.generateToken(user.getEmail());
-        return ResponseEntity.ok(new AuthResponse(token));
+        try {
+            User user = userService.validateUser(req.getEmail(), req.getPassword());
+            String token = jwtUtils.generateToken(user.getEmail());
+            return ResponseEntity.ok(new AuthResponse(token));
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(new AuthResponse(e.getMessage())
+                    ,HttpStatus.UNAUTHORIZED);
+        }
     }
 }
