@@ -19,7 +19,8 @@ public class CorsConfig {
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
                 "https://ai-social-content-gen-omega.vercel.app",
-                "https://social-content-generator-five.vercel.app"
+                "https://social-content-generator-five.vercel.app",
+                "https://social-content-generator-a4aigcf0k-yohanisharas-projects.vercel.app"
         ));
         config.setAllowedMethods(List.of(
                 "GET", "POST", "PUT", "DELETE", "OPTIONS"
